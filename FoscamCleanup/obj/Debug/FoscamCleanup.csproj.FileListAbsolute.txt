@@ -1,0 +1,16 @@
+C:\Users\Robbe\Documents\Git\FoscamCleanup\FoscamCleanup\bin\Debug\FoscamCleanup.exe.config
+C:\Users\Robbe\Documents\Git\FoscamCleanup\FoscamCleanup\bin\Debug\FoscamCleanup.exe
+C:\Users\Robbe\Documents\Git\FoscamCleanup\FoscamCleanup\bin\Debug\FoscamCleanup.pdb
+C:\Users\Robbe\Documents\Git\FoscamCleanup\FoscamCleanup\obj\Debug\FoscamCleanup.csprojAssemblyReference.cache
+C:\Users\Robbe\Documents\Git\FoscamCleanup\FoscamCleanup\obj\Debug\FoscamCleanup.csproj.CoreCompileInputs.cache
+C:\Users\Robbe\Documents\Git\FoscamCleanup\FoscamCleanup\obj\Debug\FoscamCleanup.exe
+C:\Users\Robbe\Documents\Git\FoscamCleanup\FoscamCleanup\obj\Debug\FoscamCleanup.pdb
+C:\Users\Robbe\Documents\Git\FoscamCleanup\FoscamCleanup\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\Robbe\Documents\Git\FoscamCleanup\FoscamCleanup\bin\Debug\System.IO.Compression.ZipFile.dll
+C:\Users\Robbe\Documents\Git\FoscamCleanup\FoscamCleanup\bin\Debug\ICSharpCode.SharpZipLib.pdb
+C:\Users\Robbe\Documents\Git\FoscamCleanup\FoscamCleanup\bin\Debug\ICSharpCode.SharpZipLib.xml
+C:\Users\Robbe\Documents\Git\FoscamCleanup\FoscamCleanup\obj\Debug\FoscamCleanup.csproj.CopyComplete
+C:\Users\Robbe\Documents\Git\FoscamCleanup\FoscamCleanup\bin\Debug\FoscamCleanup.exe.manifest
+C:\Users\Robbe\Documents\Git\FoscamCleanup\FoscamCleanup\bin\Debug\FoscamCleanup.application
+C:\Users\Robbe\Documents\Git\FoscamCleanup\FoscamCleanup\obj\Debug\FoscamCleanup.exe.manifest
+C:\Users\Robbe\Documents\Git\FoscamCleanup\FoscamCleanup\obj\Debug\FoscamCleanup.application
