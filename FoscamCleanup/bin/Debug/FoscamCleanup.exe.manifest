@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FoscamCleanup.exe" size="12768">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FoscamCleanup.exe" size="12256">
       <assemblyIdentity name="FoscamCleanup" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>UPuwVcLNe6igw9PR1ONog8firG1GiA16hyUCIUlJ0tQ=</dsig:DigestValue>
+        <dsig:DigestValue>47T+5CusuiNoBK50LDKIAq6bx0HsVM3c+Oa+9rIqK4A=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
