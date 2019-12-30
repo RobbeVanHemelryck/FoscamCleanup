@@ -14,3 +14,5 @@ C:\Users\Robbe\Documents\Git\FoscamCleanup\FoscamCleanup\bin\Debug\FoscamCleanup
 C:\Users\Robbe\Documents\Git\FoscamCleanup\FoscamCleanup\bin\Debug\FoscamCleanup.application
 C:\Users\Robbe\Documents\Git\FoscamCleanup\FoscamCleanup\obj\Debug\FoscamCleanup.exe.manifest
 C:\Users\Robbe\Documents\Git\FoscamCleanup\FoscamCleanup\obj\Debug\FoscamCleanup.application
+C:\Users\Robbe\Documents\Git\FoscamCleanup\FoscamCleanup\bin\Debug\Renci.SshNet.dll
+C:\Users\Robbe\Documents\Git\FoscamCleanup\FoscamCleanup\bin\Debug\Renci.SshNet.xml
