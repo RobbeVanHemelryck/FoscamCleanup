@@ -14,41 +14,41 @@ namespace FoscamCleanup
     {
         public static void FileUploadSFTP()
         {
-            var host = "taltiko.stackstorage.com";
-            var port = 22;
-            var username = "taltiko@taltiko.stackstorage.com";
-            var password = "UucY6wuv";
+            //var host = "taltiko.stackstorage.com";
+            //var port = 22;
+            //var username = "taltiko@taltiko.stackstorage.com";
+            //var password = "UucY6wuv";
 
-            byte[] file = File.ReadAllBytes(@"C:\Users\Robbe\Documents\Fitness.xlsx");
+            //byte[] file = File.ReadAllBytes(@"C:\Users\Robbe\Documents\Fitness.xlsx");
 
-            using (var client = new SftpClient(host, port, username, password))
-            {
-                client.Connect();
-                if (client.IsConnected)
-                {
-                    Debug.WriteLine("I'm connected to the client");
+            //using (var client = new SftpClient(host, port, username, password))
+            //{
+            //    client.Connect();
+            //    if (client.IsConnected)
+            //    {
+            //        Debug.WriteLine("I'm connected to the client");
 
-                    using (var ms = new MemoryStream(file))
-                    {
-                        client.BufferSize = (uint)ms.Length; // bypass Payload error large files
-                        client.CreateDirectory(ms, "Fitness.xlsx"); // hier zo
-                    }
-                }
-                else
-                {
-                    Debug.WriteLine("I couldn't connect");
-                }
-            }
+            //        using (var ms = new MemoryStream(file))
+            //        {
+            //            client.BufferSize = (uint)ms.Length; // bypass Payload error large files
+            //            client.CreateDirectory(ms, "Fitness.xlsx"); // hier zo
+            //        }
+            //    }
+            //    else
+            //    {
+            //        Debug.WriteLine("I couldn't connect");
+            //    }
+            //}
         }
 
         static void Main(string[] args)
         {
-            FileUploadSFTP();
-            return;
+            //FileUploadSFTP();
+            //return;
             string filesDir = @"F:\R2_00626E8B547C\snap";
             string videosDir = @"F:\R2_00626E8B547C\record";
-            string scheduleDir = @"F:\R2_00626E8B547C\Scheduled";
-            string alarmVideoDir = @"F:\R2_00626E8B547C\Alarm videos";
+            string scheduleDir = @"F:\R2_00626E8B547C\Scheduled\";
+            string alarmVideoDir = @"F:\R2_00626E8B547C\Alarm videos\";
 
             string currentDay = DateTime.Now.Date.ToString("yyyyMMdd");
             var files = Directory.GetFiles(filesDir);
