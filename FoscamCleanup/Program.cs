@@ -1,4 +1,5 @@
-﻿using Renci.SshNet;
+﻿using Newtonsoft.Json;
+using Renci.SshNet;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -45,13 +46,24 @@ namespace FoscamCleanup
         {
             //FileUploadSFTP();
             //return;
-            string filesDir = @"F:\R2_00626E8B547C\snap";
-            string videosDir = @"F:\R2_00626E8B547C\record";
-            string scheduleDir = @"F:\R2_00626E8B547C\Scheduled\";
-            string alarmVideoDir = @"F:\R2_00626E8B547C\Alarm videos\";
+            string snapSource;
+            string recordSource;
+            string snapDestination;
+            string recordDestination;
+
+            //Get all dirs from settings file
+            dynamic dirs;
+            using(StreamReader reader = new StreamReader("settings.json"))
+            {
+                dirs = JsonConvert.DeserializeObject(reader.ReadToEnd());
+                snapSource = ((string)dirs.snapSource).EndsWith("\\")? dirs.snapSource : dirs.snapSource + "\\";
+                recordSource = ((string)dirs.recordSource).EndsWith("\\") ? dirs.recordSource : dirs.recordSource + "\\";
+                snapDestination = ((string)dirs.snapDestination).EndsWith("\\") ? dirs.snapDestination : dirs.snapDestination + "\\";
+                recordDestination = ((string)dirs.recordDestination).EndsWith("\\") ? dirs.recordDestination : dirs.recordDestination + "\\";
+            }
 
             string currentDay = DateTime.Now.Date.ToString("yyyyMMdd");
-            var files = Directory.GetFiles(filesDir);
+            var files = Directory.GetFiles(snapSource);
 
             //Schedule files
             Console.WriteLine("SCHEDULE FILES -------------------------------------------------------");
@@ -68,23 +80,23 @@ namespace FoscamCleanup
 
 
                 //If the directory doesnt exist - create it and move files
-                if (!Directory.Exists(scheduleDir + folderName))
+                if (!Directory.Exists(snapDestination + folderName))
                 {
-                    Directory.CreateDirectory(scheduleDir + folderName);
+                    Directory.CreateDirectory(snapDestination + folderName);
 
                     //Move files to destination
                     foreach (var item in dayGroup.Select(x => x.fileName))
                     {
                         string fileName = item.Substring(item.LastIndexOf('\\') + 10);
-                        File.Move(item, scheduleDir + folderName + "\\" + fileName);
-                        Console.WriteLine(scheduleDir + folderName + "\\" + fileName);
+                        File.Move(item, snapDestination + folderName + "\\" + fileName);
+                        Console.WriteLine(snapDestination + folderName + "\\" + fileName);
                     }
                 }
             }
 
             Console.WriteLine("MDALARM VIDEO FILES -------------------------------------------------------");
 
-            var MDAlarmVideoFiles = Directory.GetFiles(videosDir).Select(x => new { day = x.Substring(x.LastIndexOf('\\') + 9, 8), fileName = x }).ToList();
+            var MDAlarmVideoFiles = Directory.GetFiles(recordSource).Select(x => new { day = x.Substring(x.LastIndexOf('\\') + 9, 8), fileName = x }).ToList();
             dayGroups = MDAlarmVideoFiles.GroupBy(x => x.day).Where(x => x.Key != currentDay).ToList();
             Console.WriteLine($"Found {dayGroups.Count} days");
 
@@ -99,28 +111,28 @@ namespace FoscamCleanup
                 DateTime.TryParseExact(dayGroup.Key, "yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out date);
                 string folderName = date.ToString("yyyy-MM-dd");
 
-                if (!Directory.Exists(alarmVideoDir + folderName))
+                if (!Directory.Exists(recordDestination + folderName))
                 {
-                    Directory.CreateDirectory(alarmVideoDir + folderName);
+                    Directory.CreateDirectory(recordDestination + folderName);
 
                     //Move files to destination
                     foreach (var item in dayGroup.Select(x => x.fileName))
                     {
                         string fileName = item.Substring(item.LastIndexOf('\\') + 9);
-                        File.Move(item, alarmVideoDir + folderName + "\\" + fileName);
-                        Console.WriteLine(alarmVideoDir + folderName + "\\" + fileName);
+                        File.Move(item, recordDestination + folderName + "\\" + fileName);
+                        Console.WriteLine(recordDestination + folderName + "\\" + fileName);
                     }
                 }
             }
 
             //Delete folders older than 6 months
             Console.WriteLine("DELETING OLD FOLDERS -------------------------------------------------------");
-            List<string> scheduleDirs = Directory.GetDirectories(scheduleDir).ToList();
-            List<string> alarmVideoDirs = Directory.GetDirectories(alarmVideoDir).ToList();
-            List<string> concat = scheduleDirs.Concat(alarmVideoDirs).ToList();
+            List<string> snapDestinations = Directory.GetDirectories(snapDestination).ToList();
+            List<string> recordDestinations = Directory.GetDirectories(recordDestination).ToList();
+            List<string> concat = snapDestinations.Concat(recordDestinations).ToList();
 
-            Console.WriteLine($"Found {scheduleDirs.Count} directories in {scheduleDir}");
-            Console.WriteLine($"Found {alarmVideoDirs.Count} directories in {alarmVideoDir}");
+            Console.WriteLine($"Found {snapDestinations.Count} directories in {snapDestination}");
+            Console.WriteLine($"Found {recordDestinations.Count} directories in {recordDestination}");
             
             foreach (string path in concat)
             {
