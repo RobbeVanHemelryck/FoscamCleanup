@@ -1,6 +1,17 @@
-{
-  "snapSource": "F:\\Camera Footage\\R2_00626E8B547C\\snap",
-  "recordSource": "F:\\Camera Footage\\R2_00626E8B547C\\record",
-  "snapDestination": "F:\\Camera Footage\\R2_00626E8B547C\\Scheduled\\",
-  "recordDestination": "F:\\Camera Footage\\R2_00626E8B547C\\Alarm videos\\"
-}
+[
+  {
+    "name": "Camera 1 Snap",
+    "source": "C:\\Users\\Robbe\\Desktop\\Foscam test - Copy\\Source\\Camera 1 Snap",
+    "destination": "C:\\Users\\Robbe\\Desktop\\Foscam test - Copy\\Destination\\Camera 1 Snap"
+  },
+  {
+    "name": "Camera 1 Video",
+    "source": "C:\\Users\\Robbe\\Desktop\\Foscam test - Copy\\Source\\Camera 1 Video",
+    "destination": "C:\\Users\\Robbe\\Desktop\\Foscam test - Copy\\Destination\\Camera 1 Video"
+  },
+  {
+    "name": "Camera 2 Snap",
+    "source": "C:\\Users\\Robbe\\Desktop\\Foscam test - Copy\\Source\\Camera 2 Snap",
+    "destination": "C:\\Users\\Robbe\\Desktop\\Foscam test - Copy\\Destination\\Camera 2 Snap"
+  }
+]

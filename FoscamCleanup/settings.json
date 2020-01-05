@@ -1,6 +1,12 @@
-{
-  "snapSource": "F:\\Camera Footage\\R2_00626E8B547C\\snap",
-  "recordSource": "F:\\Camera Footage\\R2_00626E8B547C\\record",
-  "snapDestination": "F:\\Camera Footage\\R2_00626E8B547C\\Scheduled\\",
-  "recordDestination": "F:\\Camera Footage\\R2_00626E8B547C\\Alarm videos\\"
-}
+[
+  {
+    "snapSource": "F:\\Camera Footage raw\\R2_00626E8B547C\\snap",
+    "snapDestination": "F:\\Camera Footage\\Camera 1\\Scheduled",
+    "videoSource": "F:\\Camera Footage raw\\R2_00626E8B547C\\record",
+    "videoDestination": "F:\\Camera Footage\\Camera 1\\Videos"
+  },
+  {
+    "snapSource": "\\\\192.168.0.126\\fi9818w-000c5ddd82d0\\Images",
+    "snapDestination": "F:\\Camera Footage\\Camera 2\\Scheduled",
+  }
+]

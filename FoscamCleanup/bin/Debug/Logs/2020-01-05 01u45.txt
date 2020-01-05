@@ -1,0 +1,43 @@
+------------------------- Camera 1 Snap -------------------------
+C:\Users\Robbe\Desktop\Foscam test - Copy\Source\Camera 1 Snap\Schedule_20200104-000000.jpg -> C:\Users\Robbe\Desktop\Foscam test - Copy\Destination\Camera 1 Snap\2020-01-04\Schedule_20200104-000000.jpg
+C:\Users\Robbe\Desktop\Foscam test - Copy\Source\Camera 1 Snap\Schedule_20200104-000002.jpg -> C:\Users\Robbe\Desktop\Foscam test - Copy\Destination\Camera 1 Snap\2020-01-04\Schedule_20200104-000002.jpg
+C:\Users\Robbe\Desktop\Foscam test - Copy\Source\Camera 1 Snap\Schedule_20200104-000004.jpg -> C:\Users\Robbe\Desktop\Foscam test - Copy\Destination\Camera 1 Snap\2020-01-04\Schedule_20200104-000004.jpg
+C:\Users\Robbe\Desktop\Foscam test - Copy\Source\Camera 1 Snap\Schedule_20200104-000006.jpg -> C:\Users\Robbe\Desktop\Foscam test - Copy\Destination\Camera 1 Snap\2020-01-04\Schedule_20200104-000006.jpg
+C:\Users\Robbe\Desktop\Foscam test - Copy\Source\Camera 1 Snap\Schedule_20200104-000008.jpg -> C:\Users\Robbe\Desktop\Foscam test - Copy\Destination\Camera 1 Snap\2020-01-04\Schedule_20200104-000008.jpg
+C:\Users\Robbe\Desktop\Foscam test - Copy\Source\Camera 1 Snap\Schedule_20200104-000010.jpg -> C:\Users\Robbe\Desktop\Foscam test - Copy\Destination\Camera 1 Snap\2020-01-04\Schedule_20200104-000010.jpg
+C:\Users\Robbe\Desktop\Foscam test - Copy\Source\Camera 1 Snap\Schedule_20200104-000012.jpg -> C:\Users\Robbe\Desktop\Foscam test - Copy\Destination\Camera 1 Snap\2020-01-04\Schedule_20200104-000012.jpg
+C:\Users\Robbe\Desktop\Foscam test - Copy\Source\Camera 1 Snap\Schedule_20200104-000014.jpg -> C:\Users\Robbe\Desktop\Foscam test - Copy\Destination\Camera 1 Snap\2020-01-04\Schedule_20200104-000014.jpg
+C:\Users\Robbe\Desktop\Foscam test - Copy\Source\Camera 1 Snap\Schedule_20200104-000016.jpg -> C:\Users\Robbe\Desktop\Foscam test - Copy\Destination\Camera 1 Snap\2020-01-04\Schedule_20200104-000016.jpg
+C:\Users\Robbe\Desktop\Foscam test - Copy\Source\Camera 1 Snap\Schedule_20200104-000018.jpg -> C:\Users\Robbe\Desktop\Foscam test - Copy\Destination\Camera 1 Snap\2020-01-04\Schedule_20200104-000018.jpg
+C:\Users\Robbe\Desktop\Foscam test - Copy\Source\Camera 1 Snap\Schedule_20200104-000020.jpg -> C:\Users\Robbe\Desktop\Foscam test - Copy\Destination\Camera 1 Snap\2020-01-04\Schedule_20200104-000020.jpg
+C:\Users\Robbe\Desktop\Foscam test - Copy\Source\Camera 1 Snap\Schedule_20200104-000022.jpg -> C:\Users\Robbe\Desktop\Foscam test - Copy\Destination\Camera 1 Snap\2020-01-04\Schedule_20200104-000022.jpg
+C:\Users\Robbe\Desktop\Foscam test - Copy\Source\Camera 1 Snap\Schedule_20200104-000024.jpg -> C:\Users\Robbe\Desktop\Foscam test - Copy\Destination\Camera 1 Snap\2020-01-04\Schedule_20200104-000024.jpg
+C:\Users\Robbe\Desktop\Foscam test - Copy\Source\Camera 1 Snap\Schedule_20200104-000026.jpg -> C:\Users\Robbe\Desktop\Foscam test - Copy\Destination\Camera 1 Snap\2020-01-04\Schedule_20200104-000026.jpg
+C:\Users\Robbe\Desktop\Foscam test - Copy\Source\Camera 1 Snap\Schedule_20200104-000028.jpg -> C:\Users\Robbe\Desktop\Foscam test - Copy\Destination\Camera 1 Snap\2020-01-04\Schedule_20200104-000028.jpg
+C:\Users\Robbe\Desktop\Foscam test - Copy\Source\Camera 1 Snap\Schedule_20200104-000030.jpg -> C:\Users\Robbe\Desktop\Foscam test - Copy\Destination\Camera 1 Snap\2020-01-04\Schedule_20200104-000030.jpg
+C:\Users\Robbe\Desktop\Foscam test - Copy\Source\Camera 1 Snap\Schedule_20200104-000032.jpg -> C:\Users\Robbe\Desktop\Foscam test - Copy\Destination\Camera 1 Snap\2020-01-04\Schedule_20200104-000032.jpg
+
+
+------------------------- Camera 1 Video -------------------------
+C:\Users\Robbe\Desktop\Foscam test - Copy\Source\Camera 1 Video\MDalarm_20200104_010020.mkv -> C:\Users\Robbe\Desktop\Foscam test - Copy\Destination\Camera 1 Video\2020-01-04\MDalarm_20200104_010020.mkv
+C:\Users\Robbe\Desktop\Foscam test - Copy\Source\Camera 1 Video\MDalarm_20200104_010057.mkv -> C:\Users\Robbe\Desktop\Foscam test - Copy\Destination\Camera 1 Video\2020-01-04\MDalarm_20200104_010057.mkv
+C:\Users\Robbe\Desktop\Foscam test - Copy\Source\Camera 1 Video\MDalarm_20200104_010454.mkv -> C:\Users\Robbe\Desktop\Foscam test - Copy\Destination\Camera 1 Video\2020-01-04\MDalarm_20200104_010454.mkv
+C:\Users\Robbe\Desktop\Foscam test - Copy\Source\Camera 1 Video\MDalarm_20200104_023245.mkv -> C:\Users\Robbe\Desktop\Foscam test - Copy\Destination\Camera 1 Video\2020-01-04\MDalarm_20200104_023245.mkv
+C:\Users\Robbe\Desktop\Foscam test - Copy\Source\Camera 1 Video\MDalarm_20200104_063955.mkv -> C:\Users\Robbe\Desktop\Foscam test - Copy\Destination\Camera 1 Video\2020-01-04\MDalarm_20200104_063955.mkv
+C:\Users\Robbe\Desktop\Foscam test - Copy\Source\Camera 1 Video\MDalarm_20200104_064108.mkv -> C:\Users\Robbe\Desktop\Foscam test - Copy\Destination\Camera 1 Video\2020-01-04\MDalarm_20200104_064108.mkv
+C:\Users\Robbe\Desktop\Foscam test - Copy\Source\Camera 1 Video\MDalarm_20200104_135948.mkv -> C:\Users\Robbe\Desktop\Foscam test - Copy\Destination\Camera 1 Video\2020-01-04\MDalarm_20200104_135948.mkv
+C:\Users\Robbe\Desktop\Foscam test - Copy\Source\Camera 1 Video\MDalarm_20200104_153530.mkv -> C:\Users\Robbe\Desktop\Foscam test - Copy\Destination\Camera 1 Video\2020-01-04\MDalarm_20200104_153530.mkv
+
+
+------------------------- Camera 2 Snap -------------------------
+C:\Users\Robbe\Desktop\Foscam test - Copy\Source\Camera 2 Snap\Camera 2-20200103010320.jpg -> C:\Users\Robbe\Desktop\Foscam test - Copy\Destination\Camera 2 Snap\2020-01-03\Camera 2-20200103010320.jpg
+C:\Users\Robbe\Desktop\Foscam test - Copy\Source\Camera 2 Snap\Camera 2-20200103010322.jpg -> C:\Users\Robbe\Desktop\Foscam test - Copy\Destination\Camera 2 Snap\2020-01-03\Camera 2-20200103010322.jpg
+C:\Users\Robbe\Desktop\Foscam test - Copy\Source\Camera 2 Snap\Camera 2-20200103010324.jpg -> C:\Users\Robbe\Desktop\Foscam test - Copy\Destination\Camera 2 Snap\2020-01-03\Camera 2-20200103010324.jpg
+C:\Users\Robbe\Desktop\Foscam test - Copy\Source\Camera 2 Snap\Camera 2-20200103010326.jpg -> C:\Users\Robbe\Desktop\Foscam test - Copy\Destination\Camera 2 Snap\2020-01-03\Camera 2-20200103010326.jpg
+C:\Users\Robbe\Desktop\Foscam test - Copy\Source\Camera 2 Snap\Camera 2-20200103010328.jpg -> C:\Users\Robbe\Desktop\Foscam test - Copy\Destination\Camera 2 Snap\2020-01-03\Camera 2-20200103010328.jpg
+C:\Users\Robbe\Desktop\Foscam test - Copy\Source\Camera 2 Snap\Camera 2-20200103010330.jpg -> C:\Users\Robbe\Desktop\Foscam test - Copy\Destination\Camera 2 Snap\2020-01-03\Camera 2-20200103010330.jpg
+C:\Users\Robbe\Desktop\Foscam test - Copy\Source\Camera 2 Snap\Camera 2-20200103010332.jpg -> C:\Users\Robbe\Desktop\Foscam test - Copy\Destination\Camera 2 Snap\2020-01-03\Camera 2-20200103010332.jpg
+C:\Users\Robbe\Desktop\Foscam test - Copy\Source\Camera 2 Snap\Camera 2-20200103010334.jpg -> C:\Users\Robbe\Desktop\Foscam test - Copy\Destination\Camera 2 Snap\2020-01-03\Camera 2-20200103010334.jpg
+C:\Users\Robbe\Desktop\Foscam test - Copy\Source\Camera 2 Snap\Camera 2-20200103010336.jpg -> C:\Users\Robbe\Desktop\Foscam test - Copy\Destination\Camera 2 Snap\2020-01-03\Camera 2-20200103010336.jpg
+
+
