@@ -34,7 +34,7 @@ namespace FoscamCleanup
             timer.Start();
 
             //Create logging file
-            string logPath = Path.Combine(Directory.GetCurrentDirectory(), "Logs", $"{DateTime.Now.ToString("yyyy-MM-dd HHumm")}.txt");
+            string logPath = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location), "Logs", $"{DateTime.Now.ToString("yyyy-MM-dd HHumm")}.txt");
             using (TextWriter log = File.CreateText(logPath))
             {
                 try
@@ -46,7 +46,7 @@ namespace FoscamCleanup
 
                     //Populate the fileGroupers with the JSON data
                     List<FileGrouper> fileGroupers = new List<FileGrouper>();
-                    using (StreamReader reader = new StreamReader(Path.Combine(Directory.GetCurrentDirectory(), "settings.json")))
+                    using (StreamReader reader = new StreamReader(Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location), "settings.json")))
                     {
                         IEnumerable<dynamic> json = JsonConvert.DeserializeObject<IEnumerable<dynamic>>(reader.ReadToEnd());
                         foreach (var fgJson in json)
