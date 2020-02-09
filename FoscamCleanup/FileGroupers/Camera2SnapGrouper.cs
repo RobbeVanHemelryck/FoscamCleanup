@@ -16,7 +16,7 @@ namespace FoscamCleanup
 
         public override DateTime GetDateFromFileName(string fileName)
         {
-            string dateString = Path.GetFileName(fileName).Substring(9, 8);
+            string dateString = Path.GetFileName(fileName).Substring(0, 8);
             DateTime date = DateTime.ParseExact(dateString, "yyyyMMdd", CultureInfo.InvariantCulture);
             return date;
         }
