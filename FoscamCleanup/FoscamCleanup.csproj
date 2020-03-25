@@ -51,7 +51,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>FA37CEC216AA195E1DE05A0771BC61A0DDF5E948</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>10BFCCFE533C9F0EB2B6FA419B026858097385EE</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>FoscamCleanup_TemporaryKey.pfx</ManifestKeyFile>

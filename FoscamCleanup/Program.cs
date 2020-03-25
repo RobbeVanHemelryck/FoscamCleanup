@@ -25,8 +25,14 @@ namespace FoscamCleanup
             }
             return objects;
         }
-        
+
         static void Main(string[] args)
+        {
+            GroupFiles();
+            DeleteOldFiles();
+        }
+
+        private static void GroupFiles()
         {
             int totalCounter = 0;
             Stopwatch timer = new Stopwatch();
@@ -40,24 +46,8 @@ namespace FoscamCleanup
                 try
                 {
                     timer.Start();
-
-                    //Create all instances of the fileGroupers
-                    List<FileGrouper> fileGroupClasses = GetEnumerableOfType<FileGrouper>().ToList();
-
-                    //Populate the fileGroupers with the JSON data
-                    List<FileGrouper> fileGroupers = new List<FileGrouper>();
-                    using (StreamReader reader = new StreamReader(Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location), "settings.json")))
-                    {
-                        IEnumerable<dynamic> json = JsonConvert.DeserializeObject<IEnumerable<dynamic>>(reader.ReadToEnd());
-                        foreach (var fgJson in json)
-                        {
-                            FileGrouper fg = fileGroupClasses.Single(x => x.AppliesTo(fgJson.name.ToString()));
-                            fg.Source = fgJson.source;
-                            fg.Destination = fgJson.destination;
-                            fileGroupers.Add(fg);
-                        }
-                    }
-
+                    List<FileGrouper> fileGroupers = GetFileGroupers();
+                    
                     //Execute the grouping for each grouper
                     foreach (FileGrouper fileGrouper in fileGroupers)
                     {
@@ -90,7 +80,7 @@ namespace FoscamCleanup
                                 }
                             }
                         }
-                        catch(Exception e)
+                        catch (Exception e)
                         {
                             log.WriteLine($"An exception occured: {e.Message}");
                             log.WriteLine();
@@ -107,7 +97,7 @@ namespace FoscamCleanup
                     timer.Stop();
                     groupTimer.Stop();
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     //Log the exception
                     log.WriteLine();
@@ -120,35 +110,130 @@ namespace FoscamCleanup
                     groupTimer.Stop();
                 }
             }
-                
+        }
 
-                ////Delete folders older than 6 months
-                //Console.WriteLine("DELETING OLD FOLDERS -------------------------------------------------------");
-                //List<string> snapDestinations = Directory.GetDirectories(snapDestination).ToList();
-                //List<string> recordDestinations = Directory.GetDirectories(videoDestination).ToList();
-                //List<string> concat = snapDestinations.Concat(recordDestinations).ToList();
+        private static void DeleteOldFiles()
+        {
+            int totalCounter = 0;
+            double totalFreedBytes = 0;
+            Stopwatch timer = new Stopwatch();
+            Stopwatch groupTimer = new Stopwatch();
 
-                //Console.WriteLine($"Found {snapDestinations.Count} directories in {snapDestination}");
-                //Console.WriteLine($"Found {recordDestinations.Count} directories in {videoDestination}");
-            
-                //foreach (string path in concat)
-                //{
-                //    string dirName = Path.GetFileName(path);
-                //    DateTime date = DateTime.ParseExact(dirName, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None);
+            //Create logging file
+            string logPath = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location), "Logs", $"{DateTime.Now.ToString("yyyy-MM-dd HHumm")} - Delete.txt");
+            using (TextWriter log = File.CreateText(logPath))
+            {
+                try
+                {
+                    timer.Start();
+                    List<FileGrouper> fileGroupers = GetFileGroupers();
 
-                //    if ((DateTime.Now - date).TotalDays > 360)
-                //    {
-                //        int seconds = 0;
-                //        Timer timer = new Timer();
-                //        timer.Interval = 1000;
-                //        timer.Elapsed += (x,y) => Console.Write("\rDeleting " + path + ": " + ++seconds + "s");
-                //        timer.Start();
+                    //Execute the deleting for each grouper
+                    foreach (FileGrouper fileGrouper in fileGroupers)
+                    {
+                        int counter = 0;
+                        double freedBytes = 0;
 
-                //        Directory.Delete(path, true);
-                //        timer.Stop();
-                //        Console.WriteLine();
-                //    }
-                //}
+                        log.WriteLine($"---------------------------------------- {fileGrouper.Name} ----------------------------------------");
+                        groupTimer.Restart();
+
+                        DecimateFolders(fileGrouper.Destination, 3, 6, 4, ref counter, ref freedBytes);
+                        DecimateFolders(fileGrouper.Destination, 6, 9, 8, ref counter, ref freedBytes);
+                        DecimateFolders(fileGrouper.Destination, 9, 9999, 16, ref counter, ref freedBytes);
+                        totalCounter += counter;
+                        totalFreedBytes += freedBytes;
+                        
+                        log.WriteLine($"Deleted {counter} files ({Math.Round(freedBytes / 1024 / 1024, 2)} MB) in {groupTimer.Elapsed.Seconds}.{groupTimer.Elapsed.Milliseconds}s");
+                        log.WriteLine();
+                        log.WriteLine();
+                    }
+                    log.WriteLine($"Deleted {totalCounter} total files ({Math.Round(totalFreedBytes / 1024 / 1024, 2)} MB) in {timer.Elapsed.Seconds}.{timer.Elapsed.Milliseconds}s");
+                    timer.Stop();
+                    groupTimer.Stop();
+                }
+                catch (Exception e)
+                {
+                    //Log the exception
+                    log.WriteLine();
+                    log.WriteLine();
+                    log.WriteLine($"An exception occured: {e.Message}");
+                    log.WriteLine();
+                    log.WriteLine();
+                    log.WriteLine($"Deleted {totalCounter} total files ({Math.Round(totalFreedBytes / 1024 / 1024, 2)} MB) in {timer.Elapsed.Seconds}.{timer.Elapsed.Milliseconds}s");
+                    timer.Stop();
+                    groupTimer.Stop();
+                }
+            }
+        }
+
+        private static List<FileGrouper> GetFileGroupers()
+        {
+            //Create all instances of the fileGroupers
+            List<FileGrouper> fileGroupClasses = GetEnumerableOfType<FileGrouper>().ToList();
+
+            //Populate the fileGroupers with the JSON data
+            List<FileGrouper> fileGroupers = new List<FileGrouper>();
+            using (StreamReader reader = new StreamReader(Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location), "settings.json")))
+            {
+                IEnumerable<dynamic> json = JsonConvert.DeserializeObject<IEnumerable<dynamic>>(reader.ReadToEnd());
+                foreach (var fgJson in json)
+                {
+                    FileGrouper fg = fileGroupClasses.Single(x => x.AppliesTo(fgJson.name.ToString()));
+                    fg.Source = fgJson.source;
+                    fg.Destination = fgJson.destination;
+                    fileGroupers.Add(fg);
+                }
+            }
+
+            return fileGroupers;
+        }
+
+        private static void DecimateFolders(string rootFolder, int minMonths, int maxMonths, int decimateAmount, ref int totalDeleted, ref double totalSize)
+        {
+            var foldersToDecimate = Directory.GetDirectories(rootFolder)
+                .Where(x => {
+                    try
+                    {
+                        double totalDays = DateTime.Now.Subtract(DateTime.Parse(x.Remove(0, x.LastIndexOf('\\') + 1))).TotalDays;
+                        return totalDays >= minMonths * 30 && totalDays < maxMonths * 30;
+                    }
+                    catch
+                    {
+                        return false;
+                    }
+                });
+
+            foreach (string folder in foldersToDecimate)
+            {
+                try
+                {
+                    string indicatorPath = Path.Combine(folder, $"decimation indicator");
+                    int previousDecimator = 1;
+                    if (File.Exists(indicatorPath)) previousDecimator = int.Parse(File.ReadAllText(indicatorPath));
+
+                    int adjustedDecimateAmount = decimateAmount / previousDecimator;
+                    var files = Directory.GetFiles(folder);
+
+                    //Delete all files except the n-th (adjustedDecimateAmount) ones
+                    for (int i = 0; i < files.Length; i++)
+                    {
+                        if (i % adjustedDecimateAmount > 0)
+                        {
+                            string filePath = files[i];
+                            totalDeleted++;
+                            totalSize += new FileInfo(filePath).Length;
+                            
+                            File.Delete(filePath);
+                        }
+                    }
+
+                    //Create decimation indicator file
+                    File.WriteAllText(indicatorPath, string.Empty);
+                    File.WriteAllText(indicatorPath, decimateAmount.ToString());
+                    File.SetAttributes(indicatorPath, File.GetAttributes(indicatorPath) | FileAttributes.Hidden);
+                }
+                catch{ }
             }
         }
     }
+}

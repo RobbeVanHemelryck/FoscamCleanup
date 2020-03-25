@@ -26,3 +26,18 @@ namespace FoscamCleanup
         public virtual bool IsRelevantFile(string fileName) => true;
     }
 }
+
+
+/*
+ * ,
+  {
+    "name": "Camera 1 Video",
+    "source": "C:\\Users\\Robbe\\Desktop\\Foscam test - Copy\\Source\\Camera 1 Video",
+    "destination": "C:\\Users\\Robbe\\Desktop\\Foscam test - Copy\\Destination\\Camera 1 Video"
+  },
+  {
+    "name": "Camera 2 Snap",
+    "source": "C:\\Users\\Robbe\\Desktop\\Foscam test - Copy\\Source\\Camera 2 Snap",
+    "destination": "C:\\Users\\Robbe\\Desktop\\Foscam test - Copy\\Destination\\Camera 2 Snap"
+  }
+ * */
