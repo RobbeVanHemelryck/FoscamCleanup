@@ -2,6 +2,7 @@
   {
     "name": "Camera 1 Snap",
     "source": "C:\\Users\\Robbe\\Desktop\\foscam test",
-    "destination": "C:\\Users\\Robbe\\Desktop\\foscam test"
+    "destination": "C:\\Users\\Robbe\\Desktop\\foscam test",
+    "isDecimatable": 1
   }
 ]

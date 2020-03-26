@@ -126,7 +126,7 @@ namespace FoscamCleanup
                 try
                 {
                     timer.Start();
-                    List<FileGrouper> fileGroupers = GetFileGroupers();
+                    List<FileGrouper> fileGroupers = GetFileGroupers().Where(x => x.IsDecimatable).ToList();
 
                     //Execute the deleting for each grouper
                     foreach (FileGrouper fileGrouper in fileGroupers)
@@ -137,9 +137,9 @@ namespace FoscamCleanup
                         log.WriteLine($"---------------------------------------- {fileGrouper.Name} ----------------------------------------");
                         groupTimer.Restart();
 
-                        DecimateFolders(fileGrouper.Destination, 3, 6, 4, ref counter, ref freedBytes);
-                        DecimateFolders(fileGrouper.Destination, 6, 9, 8, ref counter, ref freedBytes);
-                        DecimateFolders(fileGrouper.Destination, 9, 9999, 16, ref counter, ref freedBytes);
+                        DecimateFolders(log, fileGrouper.Destination, 3, 6, 4, ref counter, ref freedBytes);
+                        DecimateFolders(log, fileGrouper.Destination, 6, 9, 8, ref counter, ref freedBytes);
+                        DecimateFolders(log, fileGrouper.Destination, 9, 9999, 16, ref counter, ref freedBytes);
                         totalCounter += counter;
                         totalFreedBytes += freedBytes;
                         
@@ -181,6 +181,7 @@ namespace FoscamCleanup
                     FileGrouper fg = fileGroupClasses.Single(x => x.AppliesTo(fgJson.name.ToString()));
                     fg.Source = fgJson.source;
                     fg.Destination = fgJson.destination;
+                    fg.IsDecimatable = fgJson.isDecimatable == 1? true : false;
                     fileGroupers.Add(fg);
                 }
             }
@@ -188,7 +189,7 @@ namespace FoscamCleanup
             return fileGroupers;
         }
 
-        private static void DecimateFolders(string rootFolder, int minMonths, int maxMonths, int decimateAmount, ref int totalDeleted, ref double totalSize)
+        private static void DecimateFolders(TextWriter log, string rootFolder, int minMonths, int maxMonths, int decimateAmount, ref int totalDeleted, ref double totalSize)
         {
             var foldersToDecimate = Directory.GetDirectories(rootFolder)
                 .Where(x => {
@@ -205,6 +206,7 @@ namespace FoscamCleanup
 
             foreach (string folder in foldersToDecimate)
             {
+                Console.WriteLine("Decimating: " + folder);
                 try
                 {
                     string indicatorPath = Path.Combine(folder, $"decimation indicator");
@@ -212,6 +214,7 @@ namespace FoscamCleanup
                     if (File.Exists(indicatorPath)) previousDecimator = int.Parse(File.ReadAllText(indicatorPath));
 
                     int adjustedDecimateAmount = decimateAmount / previousDecimator;
+                    if (adjustedDecimateAmount == 1) continue;
                     var files = Directory.GetFiles(folder);
 
                     //Delete all files except the n-th (adjustedDecimateAmount) ones
@@ -231,8 +234,13 @@ namespace FoscamCleanup
                     File.WriteAllText(indicatorPath, string.Empty);
                     File.WriteAllText(indicatorPath, decimateAmount.ToString());
                     File.SetAttributes(indicatorPath, File.GetAttributes(indicatorPath) | FileAttributes.Hidden);
+
+                    string text = $"Decimated folder {folder} - removed {adjustedDecimateAmount - 1} out of {adjustedDecimateAmount} files";
+                    if (adjustedDecimateAmount > 1) text += $" ({previousDecimator - 1} out of {previousDecimator} were already removed)";
+                    log.WriteLine(text);
                 }
-                catch{ }
+                catch{
+                }
             }
         }
     }

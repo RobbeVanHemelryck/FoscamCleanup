@@ -11,6 +11,7 @@ namespace FoscamCleanup
         public string Source { get; set; }
         public string Destination { get; set; }
         public string Name { get; private set; }
+        public bool IsDecimatable { get; set; }
 
         public FileGrouper()
         {
