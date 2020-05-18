@@ -1,0 +1,6 @@
+---------------------------------------- Camera 3 Snap ----------------------------------------
+1      C:\Users\Robbe\Desktop\foscam test\yeet\MDAlarm_20200401-200420.jpg   ->   C:\Users\Robbe\Desktop\foscam test\jood\2020-04-01\MDAlarm_20200401-200420.jpg
+Processed 1 files in 7.421s
+
+
+Processed 1 total files in 12.676s

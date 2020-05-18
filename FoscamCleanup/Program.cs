@@ -70,13 +70,15 @@ namespace FoscamCleanup
                             foreach (var group in fileGroups)
                             {
                                 string groupDestination = Path.Combine(fileGrouper.Destination, group.Key.ToString("yyyy-MM-dd"));
+                                if (Directory.Exists(groupDestination)) groupDestination += Guid.NewGuid();
+
                                 Directory.CreateDirectory(groupDestination);
                                 foreach (string file in group)
                                 {
                                     counter++;
                                     string destination = Path.Combine(groupDestination, Path.GetFileName(file));
                                     File.Move(file, destination);
-                                    log.WriteLine($"{counter.ToString().PadRight(6)} {file}   ->   {destination}");
+                                    log.WriteLine($"{counter,6} {file}   ->   {destination}");
                                 }
                             }
                         }
@@ -216,6 +218,8 @@ namespace FoscamCleanup
                     int adjustedDecimateAmount = decimateAmount / previousDecimator;
                     if (adjustedDecimateAmount == 1) continue;
                     var files = Directory.GetFiles(folder);
+
+                    if (files.Length < 2701) continue;
 
                     //Delete all files except the n-th (adjustedDecimateAmount) ones
                     for (int i = 0; i < files.Length; i++)

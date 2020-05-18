@@ -1,0 +1,7 @@
+---------------------------------------- Camera 3 Snap ----------------------------------------
+An exception occured: String was not recognized as a valid DateTime.
+
+Processed 0 files in 0.10s
+
+
+Processed 0 total files in 1.801s

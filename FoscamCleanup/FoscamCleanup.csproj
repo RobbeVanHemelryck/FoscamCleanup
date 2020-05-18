@@ -86,6 +86,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FileGroupers\Camera3SnapGrouper.cs" />
+    <Compile Include="FileGroupers\Camera3VideoGrouper.cs" />
     <Compile Include="FileGroupers\Camera2SnapGrouper.cs" />
     <Compile Include="FileGroupers\Camera1VideoGrouper.cs" />
     <Compile Include="FileGroupers\Camera1SnapGrouper.cs" />
